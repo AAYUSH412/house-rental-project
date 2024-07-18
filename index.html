@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <title>Sign Up and Sign In</title>
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="firebase.js"></script>
 </head>
 <div class="container" id="container">
     <div class="form-container sign-up">
@@ -19,9 +20,9 @@
                 <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
             <span>or use your email for registeration</span>
-            <input type="text" placeholder="Name">
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <input type="text" placeholder="Name" id="firstname">
+            <input type="email" placeholder="Email" id="emailaddress">
+            <input type="password" placeholder="Password" id="passcode">
             <button onclick="signup()" type="button">Sign Up</button>
         </form>
     </div>
@@ -35,8 +36,8 @@
                 <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
             </div>
             <span>or use your email password</span>
-            <input type="email" placeholder="Email">
-            <input type="password" placeholder="Password">
+            <input type="email" placeholder="Email" id="mail">
+            <input type="password" placeholder="Password" id="pass">
             <a href="#">Forget Your Password?</a>
             <button onclick="signin()" type="button">Sign In</button>
         </form>
