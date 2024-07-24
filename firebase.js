@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword ,GoogleAuthProvider,signInWithPopup,GithubAuthProvider,onAuthStateChanged} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword ,GoogleAuthProvider,signInWithPopup,GithubAuthProvider,sendPasswordResetEmail} from "https://www.gstatic.com/firebasejs/10.12.3/firebase-auth.js";
 import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-firestore.js";
 
 // Firebase configuration
@@ -147,3 +147,23 @@ function formatFirebaseErrorMessage(message) {
     return message.replace("Firebase: ", "");
 }
 
+// forget password
+
+const forget = document.getElementById("forgetpassword");
+
+forget.addEventListener('click', () => {
+    const email = document.getElementById("mail").value;
+    if (email) {
+        sendPasswordResetEmail(auth, email)
+            .then(() => {
+                alert("A Password Reset Link has been sent to your email");
+            })
+            .catch((error) => {
+                const errorMessage = formatFirebaseErrorMessage(error.message);
+                console.log(errorMessage);
+                alert(errorMessage);
+            });
+    } else {
+        alert("Please enter your email address.");
+    }
+});
